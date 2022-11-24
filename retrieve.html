@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      const url = "http://localhost:3456/api/retrieve";
+      const a = () => {
+        axios.get(url).then((res) => {
+          res = res.data;
+          for (let i = 0; i < res.length; i++) {
+            let post = document.createElement("div");
+            let post_t = document.createElement("p");
+            let post_c = document.createElement("p");
+            let hr = document.createElement("hr");
+            post_t.innerHTML = "글제목: " + res[i].notice_title;
+            post_c.innerHTML = "글내용: " + res[i].notice_content;
+
+            post.appendChild(post_t);
+            post.appendChild(post_c);
+            post.appendChild(hr);
+            document.getElementById("zone").appendChild(post);
+          }
+        });
+      };
+
+      a();
+    </script>
+    <title>Posts</title>
+  </head>
+  <body>
+    <div id="zone"></div>
+  </body>
+</html>

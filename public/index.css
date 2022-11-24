@@ -1,0 +1,30 @@
+a:link{
+    color: none; text-decoration: none;
+}
+
+a:visited{
+    color: none; text-decoration: none;
+}
+
+.button{
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.sb{
+    background-color: #415a77;
+}
+
+.ssb{
+    background-color: #778da9;
+}
+
+.soo{
+    display: flex;
+}
