@@ -29,8 +29,9 @@ app.get('/post', (req, res) => {
 app.post('/post', (req, res) => {
     title = req.body.title
     content = req.body.content
+    username = req.body.username
 
-    connection.query('INSERT INTO notice (notice_title, notice_content) VALUES (?, ?)', [title, content], (err, rows) =>{
+    connection.query('INSERT INTO notice (notice_title, notice_content, notice_username) VALUES (?, ?, ?)', [title, content, username], (err, rows) =>{
         if (err){
             res.send("db 오류입니다. 다시 시도하세요.")
         }
@@ -45,7 +46,7 @@ app.get('/retrieve', (req, res)=>{
 })
 
 app.get('/api/retrieve', (req, res) => {
-    connection.query('select notice_title, notice_content from notice', (err, rows) =>{
+    connection.query('select notice_title, notice_content, notice_username from notice', (err, rows) =>{
         if (err){
             res.send("db 오류입니다. 다시 시도하세요.")
         }
