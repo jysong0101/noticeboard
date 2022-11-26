@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/main.html')
 })
 
+app.get('/content', (req, res) => {
+    res.sendFile(__dirname + '/content.html')
+})
+
 app.get('/post', (req, res) => {
     res.sendFile(__dirname + "/post.html")
 })

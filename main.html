@@ -8,31 +8,59 @@
     <script>
       const url = "http://localhost:3456/api/retrieve";
 
-      const a = () => {
+      const a = (i) => {
         axios.get(url).then((res) => {
-          res = res.data;
-          for (let i = 0; i < res.length; i++) {
+            res = res.data;
+
             let post = document.createElement("div");
             let post_t = document.createElement("p");
             let post_c = document.createElement("p");
             let hr = document.createElement("hr");
             post_t.innerHTML = (i+1) + " : " + res[i].notice_title;
-            
 
             post.appendChild(post_t);
             post.appendChild(post_c);
             post.appendChild(hr);
             document.getElementById("zone").appendChild(post);
-          }
+          
         });
       };
 
-      a();
+    
     </script>
     <title>Posts</title>
   </head>
   <body>
     <h1>자유 게시판</h1>
+    
+    <!-- 홈버튼 
+
+    <button id="myButton" class="float-left submit-button" >Home</button>
+
+    <script type="text/javascript">
+        document.getElementById("myButton").onclick = function () {
+            location.href = "http://localhost:3456/content";
+        };
+    </script>
+
+     -->
+
+    <!-- 글쓰기 버튼 -->
+
+    <a href="/post" class="button sb">글 쓰기</a>
+
+    <a><br><br>글 목록<br></a>
+
+    <script>
+        axios.get(url).then((res) => {
+            res = res.data;
+            for(let i = 0; i < res.length; i++) {
+                a(i);
+                // ???
+            }          
+        });
+    </script>
+
     <div id="zone"></div>
   </body>
 </html>
