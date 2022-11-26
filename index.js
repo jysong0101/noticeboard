@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 // 구현 시작
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname + '/main.html')
 })
 
 app.get('/post', (req, res) => {

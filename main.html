@@ -7,6 +7,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
       const url = "http://localhost:3456/api/retrieve";
+
       const a = () => {
         axios.get(url).then((res) => {
           res = res.data;
@@ -15,8 +16,7 @@
             let post_t = document.createElement("p");
             let post_c = document.createElement("p");
             let hr = document.createElement("hr");
-            post_t.innerHTML = "글제목: " + res[i].notice_title;
-            post_c.innerHTML = "글내용: " + res[i].notice_content;
+            post_t.innerHTML = (i+1) + " : " + res[i].notice_title;
             
 
             post.appendChild(post_t);
@@ -32,6 +32,7 @@
     <title>Posts</title>
   </head>
   <body>
+    <h1>자유 게시판</h1>
     <div id="zone"></div>
   </body>
 </html>
