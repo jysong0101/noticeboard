@@ -11,6 +11,9 @@ const PORT = 3456
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true})) 
+
+// 구현 시작
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
