@@ -7,15 +7,25 @@ const db_config = require("./db/db_conn")
 const app = express()
 const connection = mysql.createConnection(db_config)
 
+var cors = require('cors')
+
 const PORT = 3456
+
+app.use(cors())
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true})) 
 
 // 구현 시작
 
+
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/main.html')
+})
+
+app.get('/test', (req, res) => {
+    res.sendFile(__dirname + '/test.html')
 })
 
 app.get('/content', (req, res) => {
