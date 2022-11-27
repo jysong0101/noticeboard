@@ -7,9 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" name="info_1" id="info" placeholder="내용을 입력해주세요">
+    <input type="text" id="my_name" value="" placeholder="확인하려는 글 번호를 입력">
+    <input type="button" value="확인" onclick="f()">
     <script>
-        var anText_sub1 = document.getElementById('info').value;
+        function f() {
+            var textBox = document.getElementById('my_name')
+
+            if(textBox != null) {
+                location.href = `http://localhost:3456/${textBox.value}`;
+            }
+        }
+        
     </script>
 </body>
 </html>

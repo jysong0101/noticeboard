@@ -30,6 +30,9 @@
             document.getElementById("zone").appendChild(post);
           
         });
+
+        
+
       };
 
     
@@ -48,6 +51,20 @@
             location.href = "http://localhost:3456/post";
         };
     </script>
+
+    <input type="text" id="my_name" value="" placeholder="확인하려는 글 번호를 입력">
+    <input type="button" value="확인" onclick="f()">
+    <script>
+
+      function f() {
+        let textBox = document.getElementById('my_name')
+
+        if(textBox != null) {
+          location.href = `http://localhost:3456/${textBox.value}`
+        }
+      }
+      
+    </script> 
 
     <p style = "font-size : 35px; font-weight : bold">글 목록</p>
 

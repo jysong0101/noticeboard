@@ -66,6 +66,12 @@ app.get('/api/retrieve', (req, res) => {
     })
 })
 
+app.get("/:value", (req, res) => {
+    let content_num = req.params.value
+    // content_num = parseInt(content_num)
+    res.sendFile(__dirname + "/content.html")
+})
+
 app.listen(PORT, () => {
     console.log(`server on port ${PORT}`)
 })
