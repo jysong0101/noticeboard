@@ -13,26 +13,33 @@
             res = res.data;
 
             let post = document.createElement("div");
-            let post_t = document.createElement("p");
+            let post_t = document.createElement("button");
+            let post_fix = document.createElement("button")
             let post_c = document.createElement("p");
             let post_u = document.createElement("p");
             let hr = document.createElement("hr");
 
-            post_t.innerHTML = "제목 : " + res[i].notice_title;
-            post_u.innerHTML = "유저 : " + res[i].notice_username;
-            post_c.innerHTML = "본문 : " + res[i].notice_content;
+            post_t.onclick = function(){
+              post.appendChild(post_c);
+              post.appendChild(post_fix);
+            }
             
+            post_fix.onclick = function() {
+              location.href = "http://localhost:3456/fix"
+            }
+
+            post_t.innerHTML = "제목 : " + res[i].notice_title;
+            post_u.innerHTML = "작성자 : " + res[i].notice_username;
+            post_c.innerHTML = "본문 : " + res[i].notice_content;
+            post_fix.innerHTML = "글 수정";
+
             
             post.appendChild(post_t);
-            post.appendChild(post_c);
+            // post.appendChild(post_c);
             post.appendChild(post_u)
             post.appendChild(hr);
             document.getElementById("zone").appendChild(post);
-          
         });
-
-        
-
       };
 
     

@@ -36,6 +36,10 @@ app.get('/post', (req, res) => {
     res.sendFile(__dirname + "/post.html")
 })
 
+app.get('/fix', (req, res) => {
+    res.sendFile(__dirname + "/fix.html")
+})
+
 app.post('/post', (req, res) => {
     title = req.body.title
     content = req.body.content

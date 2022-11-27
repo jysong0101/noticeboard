@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>글 작성</title>
+  </head>
+  <body>
+    <form action="../post" name="post_form" method="post">
+      <p>글 제목 <input type="text" name="title" /></p>
+      <p>작성자 <input type="text" name="username" /></p>
+      <div class="line" style="display: flex">
+        <p style="margin-top: 0px">글 내용</p>
+        <textarea
+          style="margin-left: 5px"
+          rows="15"
+          cols="50"
+          name="content"
+        ></textarea>
+      </div>
+      <input
+        class="button ssb"
+        style="border: none"
+        type="submit"
+        value="저장"
+      />
+    </form>
+  </body>
+</html>
