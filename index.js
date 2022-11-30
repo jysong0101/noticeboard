@@ -7,11 +7,7 @@ const db_config = require("./db/db_conn")
 const app = express()
 const connection = mysql.createConnection(db_config)
 
-var cors = require('cors')
-
 const PORT = 3456
-
-app.use(cors())
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true})) 
@@ -43,9 +39,9 @@ app.post('/fix', (req, res) => {
     content = req.body.content
     username = req.body.username
 
-    connection.query('UPDATE tab1, tab2 SET tab1.column1 = value1, tab1.column2 = value2 WHERE tab1.id = tab2.id;', [title, content, username], (err, rows) =>{
+    connection.query('UPDATE notice SET notice_title = ?, notice_content = ?, notice_username = ? WHERE notice_num = 1', [title, content, username], (err, rows) =>{
         if (err){
-            res.send("db 오류입니다.")
+            res.send("db 오류입니다. dd")
         }
         else{
             res.redirect('/')
@@ -84,9 +80,9 @@ app.get('/api/retrieve', (req, res) => {
 })
 
 app.get("/:value", (req, res) => {
-    let content_num = req.params.value
-    // content_num = parseInt(content_num)
-    res.sendFile(__dirname + "/content.html")
+let content_num = req.params.value
+// content_num = parseInt(content_num)
+res.sendFile(__dirname + "/content.html")
 })
 
 app.listen(PORT, () => {
