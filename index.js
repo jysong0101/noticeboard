@@ -41,7 +41,7 @@ app.post('/fix', (req, res) => {
 
     connection.query('UPDATE notice SET notice_title = ?, notice_content = ?, notice_username = ? WHERE notice_num = 1', [title, content, username], (err, rows) =>{
         if (err){
-            res.send("db 오류입니다. dd")
+            res.send("db 오류입니다. ")
         }
         else{
             res.redirect('/')
@@ -62,6 +62,7 @@ app.post('/post', (req, res) => {
             res.redirect('/')
         }
     })
+
 })
 
 app.get('/retrieve', (req, res)=>{
